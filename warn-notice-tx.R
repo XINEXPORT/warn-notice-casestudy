@@ -28,8 +28,27 @@ head(warn_notice_df)
 
 str(warn_notice_df)
 
-rename_with(warn_notice_df, tolower)
-
 colnames(warn_notice_df)
 
-warn_notice_df <-arrange(warn_notice_df, desc(COUNTY_NAME))
+rename_with(warn_notice_df, tolower)
+
+ggplot(data = warn_notice_df) +
+  geom_bar(mapping = aes(x = CITY_NAME, fill=CITY_NAME))+
+  facet_wrap(~COUNTY_NAME)
+
+ggplot(data = warn_notice_df) +
+  geom_point(mapping = aes(x = CITY_NAME, y = TOTAL_LAYOFF_NUMBER, color = COUNTY_NAME))+
+  facet_wrap(~COUNTY_NAME)
+
+
+
+
+
+
+
+
+
+
+
+
+
